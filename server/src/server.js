@@ -1,6 +1,7 @@
+const {write, read } = require('./controllers/storage-utils');
 const express = require("express");
 const {createServer} = require("http");
-const port = 5000
+const port = process.env.PORT || 5000;
 
 
 const app = express();
@@ -10,18 +11,33 @@ const io = require('socket.io')(httpServer, {
   cors: { origin: "*" }
 });
 
-io.on('connection', (socket) => {
-  console.log('a user connected');
-  
+let count = 0;
+const messageDB = read();
 
-  socket.on('message', (message) =>     {
-      console.log(message);
-      io.emit('message', `${socket.id.substr(0,2)} said ${message}` );   
+io.on('connection', (socket) => {
+  count++;
+  console.log('a user connected', count);
+  io.emit('userCount', count);
+
+  socket.on('joining', (data) => {
+    console.log("This id: ", data.id);
+    io.to(socket.id).emit('allMessages', messageDB);
+  });
+
+  socket.on('message', (message) => {
+    messageDB.push(message);
+    io.emit('newMessage', message);
+    console.log(messageDB);
   });
 
   socket.on('disconnect', ()=>{
     console.log("a user disconnected");
+    count--;
+    io.emit('userCount', count);
+    if (count === 0){
+      write(messageDB)
+    }
   })
 });
 
-httpServer.listen(port, () => console.log(`listening on http://localhost:${port}`) );
+httpServer.listen(port || 5000, () => console.log(`listening on http://localhost:${port}`) );

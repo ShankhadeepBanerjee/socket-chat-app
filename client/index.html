@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href=".">
     <title>Document</title>
 </head>
 <body>
-    <ul>
+    <h1>users online: <span id="usercount"></span></h1>
+    <ul id="messageList">
 
     </ul>
-    <input type="text" name="name">
-    <input type="text" name="text">
-    <button>Press me</button>
+    <input type="text" name="message" placeholder="Type something...">
+    <button id="submit">Press me</button>
     
     <script src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
-    <script src="src/app.js"></script>
+    <script src="src/app.js" type="module"></script>
 </body>
 </html>
