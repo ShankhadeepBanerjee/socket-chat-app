@@ -5,10 +5,11 @@ export default class View{
         this.messageInputElem = document.querySelector('input[name=message]');
         this.submitBtn = document.querySelector('button#submit');
         this.userCountElem = document.querySelector('#usercount')
-        
     };
 
-
+    addMessageToList(messageObj){
+        this.messageListElem.appendChild(createListElement(messageObj))
+    }
 
     renderAllMessages(allMessages){
         // this.messageListElem.innerHTML = '';
