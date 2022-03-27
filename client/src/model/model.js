@@ -5,7 +5,7 @@ export default class Model {
 
     fetchUser(){
         let user = localStorage.getItem('user');
-        if (!user) user = prompt('Set User Name: ');
+        while (!user) user = prompt('Set User Name: ');
         localStorage.setItem('user', user)
         return(user)
     }
