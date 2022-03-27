@@ -16,7 +16,7 @@ export default class Controller {
 
       this.socket.on("allMessages", (data) => {
         this.displayAllMessages(data);
-    });
+      });
 
       this.socket.on("newMessage", (data) => {
           this.addMessage(data);

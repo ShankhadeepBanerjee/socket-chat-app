@@ -12,7 +12,6 @@ export default class View{
     }
 
     renderAllMessages(allMessages){
-        // this.messageListElem.innerHTML = '';
         allMessages.forEach(messageObj => {
             this.messageListElem.appendChild(createListElement(messageObj))
         });

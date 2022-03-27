@@ -11,6 +11,9 @@ module.exports = class messageDB{
 
     addMessage(messageObj){
         this.db.push(messageObj);
+        if(this.db.length >= 500) {
+            this.db = this.db.slice(250, 500);
+        }
     }
 
     close(){
