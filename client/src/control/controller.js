@@ -27,7 +27,6 @@ export default class Controller {
         this.socket.emit('message', messageObj);
         this.view.clearInputField();
       }
-      this.view.scrollToBottomOfMessagesList();
     }
 
     addMessage(messageObj){
