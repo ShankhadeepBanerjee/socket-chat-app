@@ -7,6 +7,10 @@ export default class View{
         this.userCountElem = document.querySelector('#usercount')
     };
 
+    clearInputField(){
+        this.messageInputElem.value = "";
+    }
+
     addMessageToList(messageObj){
         this.messageListElem.appendChild(createListElement(messageObj))
     }
@@ -15,6 +19,10 @@ export default class View{
         allMessages.forEach(messageObj => {
             this.messageListElem.appendChild(createListElement(messageObj))
         });
+    }
+
+    scrollToBottomOfMessagesList(){
+        this.messageListElem.scrollTop = this.messageListElem.scrollHeight;
     }
 
 

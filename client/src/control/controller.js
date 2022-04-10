@@ -25,14 +25,18 @@ export default class Controller {
       this.view.submitBtn.onclick = ()=>{
         const messageObj = wrapText(this.model.user, this.view.messageInputElem.value, Date.now());
         this.socket.emit('message', messageObj);
+        this.view.clearInputField();
       }
+      this.view.scrollToBottomOfMessagesList();
     }
 
     addMessage(messageObj){
       this.view.addMessageToList(messageObj);
+      this.view.scrollToBottomOfMessagesList();
     }
 
     displayAllMessages(allMessages){
         this.view.renderAllMessages(allMessages);
+        this.view.scrollToBottomOfMessagesList();
     }
 }
