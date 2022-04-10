@@ -22,7 +22,9 @@ export default class Controller {
           this.addMessage(data);
       });
 
-      this.view.submitBtn.onclick = ()=>{
+      this.view.messageInputFormElement.onsubmit = (e)=> {
+        e.preventDefault();
+        if(!this.view.messageInputElem.value) return;
         const messageObj = wrapText(this.model.user, this.view.messageInputElem.value, Date.now());
         this.socket.emit('message', messageObj);
         this.view.clearInputField();
