@@ -1,4 +1,4 @@
-import {createListElement} from './view-utils.js';
+import {addPopUpAnimation, createListElement} from './view-utils.js';
 export default class View{
     constructor(){
         this.messageListElem = document.querySelector('ul#messageList');
@@ -12,7 +12,9 @@ export default class View{
     }
 
     addMessageToList(messageObj){
-        this.messageListElem.appendChild(createListElement(messageObj))
+        const newChild = createListElement(messageObj);
+        addPopUpAnimation(newChild);
+        this.messageListElem.appendChild(newChild);
     }
 
     renderAllMessages(allMessages){
