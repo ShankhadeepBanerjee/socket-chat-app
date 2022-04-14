@@ -8,4 +8,7 @@
         @apply px-3 py-1 rounded bg-blue-400;
         @apply hover:bg-blue-600
     }
+    .Bar {
+        @apply bg-gray-400 bg-opacity-25 backdrop-blur-sm;
+    }
 }

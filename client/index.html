@@ -11,14 +11,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;500&display=swap" rel="stylesheet"> 
 </head>
-<body class="font-['Montserrat','Open_Sans']">
+<body class="font-['Montserrat','Open_Sans'] bg-gradient-to-tr from-slate-900 via-purple-900 to-slate-900">
     <div class="container m-auto h-[100vh] flex flex-col relative">
-        <div class="flex justify-center items-center bg-gray-300 ">
-            <h1 class="text-blue-800 text-3xl my-5">Users online: <span id="usercount"></span></h1>
+        <div class="flex justify-center items-center Bar">
+            <h1 class="text-white text-3xl my-5">Users online: <span id="usercount"></span></h1>
         </div>
 
         <ul id="messageList" class="mb-24 ml-3 overflow-y-auto"></ul>
-        <div class="flex justify-center items-center bg-gray-300 p-5 fixed bottom-0 w-full container">
+        <div class="flex justify-center items-center p-5 fixed bottom-0 w-full container Bar">
             <form action="" id="input-form" class="w-full flex justify-center gap-1">
                 <input class="px-3 py-2 rounded-[5rem] w-[70%] focus:outline-none focus:shadow-lg" type="text" name="message" placeholder="Type something...">
                 <button id="submit" class="Button">SEND</button>
