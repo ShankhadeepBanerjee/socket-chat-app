@@ -32,12 +32,12 @@ export default class Controller {
     }
 
     addMessage(messageObj){
-      this.view.addMessageToList(messageObj);
+      this.view.addMessageToList(messageObj, this.model.user);
       this.view.scrollToBottomOfMessagesList();
     }
 
     displayAllMessages(allMessages){
-        this.view.renderAllMessages(allMessages);
+        this.view.renderAllMessages(allMessages, this.model.user);
         this.view.scrollToBottomOfMessagesList();
     }
 }

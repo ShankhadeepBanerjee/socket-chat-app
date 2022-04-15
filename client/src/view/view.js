@@ -11,15 +11,15 @@ export default class View{
         this.messageInputElem.value = "";
     }
 
-    addMessageToList(messageObj){
-        const newChild = createListElement(messageObj);
+    addMessageToList(messageObj, owner){
+        const newChild = createListElement(messageObj, owner);
         addPopUpAnimation(newChild);
         this.messageListElem.appendChild(newChild);
     }
 
-    renderAllMessages(allMessages){
+    renderAllMessages(allMessages, owner){
         allMessages.forEach(messageObj => {
-            this.messageListElem.appendChild(createListElement(messageObj))
+            this.messageListElem.appendChild(createListElement(messageObj, owner))
         });
     }
 
