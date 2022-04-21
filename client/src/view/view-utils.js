@@ -5,7 +5,8 @@ function createListElement(messageObj, chatOwner){
                             'grow-1', 'shrink-0',
                             'my-1', 'w-fit', 'max-w-[80%]', 
                             'overflow-hidden', 'text-wrapp-circle', 
-                            'transition', 'ease-in');
+                            'transition', 'ease-in', 'bg-opacity-10', 'backdrop-blur-sm',
+                            'text-white');
     if(chatOwner === owner) element.classList.add('self-end');
     element.innerHTML = `
                         <strong>${owner}: </strong> 
