@@ -1,10 +1,12 @@
 const messageDB = require("./messageDB.js");
 
+const cors = require('cors');
 const express = require("express");
 const {createServer} = require("http");
 const port = process.env.PORT || 5000;
 
 expressApp = express();
+expressApp.use(cors());
 httpServer = createServer(expressApp);
 
 httpServer.listen(port || 5000, () => console.log(`listening on http://localhost:${port}`) );
