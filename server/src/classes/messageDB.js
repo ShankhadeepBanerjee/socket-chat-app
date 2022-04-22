@@ -1,7 +1,12 @@
-const { writeDB, readDB } = require("./../database/storage-utils.js");
+const { writeDB, readDB, checkDBExists, createDbDirectory } = require("./../utils/storage-utils.js");
 
 module.exports = class messageDB{
-    constructor(){
+    constructor (){
+        if (!checkDBExists()){
+            console.log("creating db");
+            createDbDirectory();
+            writeDB([]);
+        }
         this.db = [...readDB()];   
     }
 

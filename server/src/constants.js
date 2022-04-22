@@ -1,3 +1,6 @@
+
 module.exports.PATHS = {
-    STORAGE: "./src/database/store.json"
+    STORAGE_PATH: "./db/store.json",
+    STORAGE_DIRECTORY: "./db",
+    STORAGE_FILE: "store.json",
 }
