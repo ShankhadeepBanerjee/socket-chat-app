@@ -14,7 +14,10 @@
 * `npm intsall`
 * add `config.js`
 * * add this `export const ENV = {
-    SOCKET_URL: 'localhost:5000'}` in `config.js`
+    SOCKET_URL_DEV: 'localhost:5000/',
+    SOCKET_URL_PROD: 'your-url',
+    ENVIRONMENT: "DEV" or "PROD",
+}` in `config.js`
 * `npm start`
 
 ## Server

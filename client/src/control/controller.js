@@ -1,12 +1,14 @@
 import { ENV } from './../../config.js';
 import { wrapText } from './controller-utils.js';
 
+const Socket_URL = (ENV.ENVIRONMENT === 'DEV' ? `ws://${ENV.SOCKET_URL_DEV}` : `wss://${ENV.SOCKET_URL_PROD}`)
+
 export default class Controller {
     constructor(model, view) {
       this.model = model;
       this.view = view;
 
-      this.socket = io(`ws://${ENV.SOCKET_URL || 'localhost:5000'}`);
+      this.socket = io(Socket_URL);
       
       this.socket.emit('joining', {id: this.model.user});
 
