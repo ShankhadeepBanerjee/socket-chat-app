@@ -1,18 +1,28 @@
+function createElem(tag){
+    return document.createElement(tag);
+}
+
 function createListElement(messageObj, chatOwner){
     const {owner, text, id} = messageObj;
-    const element = document.createElement('li');
-    element.classList.add('p-2','bg-slate-200', 'rounded', 
-                            'grow-1', 'shrink-0',
-                            'my-1', 'w-fit', 'max-w-[80%]', 
-                            'overflow-hidden', 'text-wrapp-circle', 
-                            'transition', 'ease-in', 'bg-opacity-10', 'backdrop-blur-sm',
-                            'text-white');
-    if(chatOwner === owner) element.classList.add('self-end');
-    element.innerHTML = `
-                        <strong>${owner}: </strong> 
-                        <span class="overflow-hidden break-words">${text}</span>
-                        `;
-    return element
+
+    const listElement = createElem('li');
+    const headingElement = createElem('strong');
+    const textElement = createElem('strong');
+
+    listElement.classList.add('ListElement');
+    if(chatOwner === owner) listElement.classList.add('self-end');
+
+    
+    headingElement.classList.add('block', 'w-fit', 'italic', 'text-xs', 'text-blue-300')
+    headingElement.innerText = `${owner}`
+
+    textElement.classList.add()
+    textElement.innerText = text;
+
+    listElement.appendChild(headingElement);
+    listElement.appendChild(textElement);
+
+    return listElement
 }
 
 

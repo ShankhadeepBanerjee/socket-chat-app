@@ -6,9 +6,14 @@
 @layer components {
     .Button {
         @apply px-3 py-1 rounded bg-blue-400;
-        @apply hover:bg-blue-600
+        @apply hover:bg-blue-600;
     }
     .Bar {
         @apply bg-gray-400 bg-opacity-25 backdrop-blur-sm;
+    }
+
+    .ListElement {
+        @apply p-2 bg-slate-200 rounded;
+        @apply flex flex-col grow shrink-0 my-1 w-fit max-w-[80%] overflow-hidden transition ease-in bg-opacity-20 backdrop-blur-sm text-white;
     }
 }
